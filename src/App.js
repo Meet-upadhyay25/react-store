@@ -1,9 +1,15 @@
-import React from 'react'
+import React from "react";
+import { RouterProvider } from "react-router-dom";
+import appRouter from "./router/appRouter";
+import { Provider } from "react-redux";
+import appStore from "./appStore";
 
 const App = () => {
   return (
-    <div>App</div>
-  )
-}
+    <Provider store={appStore}>
+      <RouterProvider router={appRouter} />
+    </Provider>
+  );
+};
 
-export default App
+export default App;
