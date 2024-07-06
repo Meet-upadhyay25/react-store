@@ -6,11 +6,13 @@ const ProductDetail = () => {
   const { productName, productId } = useParams();
   const product = useProduct(productId);
 
+  if (!product) return <h1>Loading</h1>;
+
   return (
     <div>
       {product && (
         <div>
-            <img src={product.image} className="w-[50px]"/>
+          <img src={product.image} className="w-[50px]" />
           <h1>{product.title}</h1>
           <p>{product.description}</p>
           <p>${product.price}</p>

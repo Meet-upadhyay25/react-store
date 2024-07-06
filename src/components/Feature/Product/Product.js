@@ -1,13 +1,11 @@
 import React from "react";
 import useAllProducts from "../../../hooks/useAllProducts";
-import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
-const Product = () => {
- const products =  useAllProducts();
-
+const Product = ({products}) => {
   return (
     <section className=" mt-10">
+      <h1>Most Popular</h1>
         <div className="flex flex-wrap gap-5">
         {products &&
         products.map((product) => (
