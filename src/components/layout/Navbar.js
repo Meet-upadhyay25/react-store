@@ -21,7 +21,10 @@ const Navbar = () => {
               </li>
             ))}
             <li>
-              <img src={signIn} className="w-8 h-8" alt="login" />
+              <Link to={"/login"}>
+                <img src={signIn} className="w-8 h-8 cursor-pointer" alt="login" />
+
+              </Link>
             </li>
           </ul>
         </div>
