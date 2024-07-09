@@ -16,7 +16,7 @@ const Home = () => {
     <main className="p-5 bg-gradient-to-b from-gray-100 to-gray-200 min-h-screen">
       <div className="max-w-6xl mx-auto">
         <Categories handleCategory={handleCategory} />
-        <Product products={products} />
+        <Product products={products}  category={category} />
       </div>
     </main>
   );
