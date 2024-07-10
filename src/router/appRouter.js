@@ -2,7 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import AppLayout from "../components/layout/AppLayout";
 import Home from "../pages/Home";
 import ProductDetail from "../components/Feature/Product/ProductDetail";
-import Login from "../components/Feature/Auth/Login";
+import Auth from "../components/Feature/Auth/Auth";
 
 const appRouter = createBrowserRouter([
   {
@@ -18,8 +18,8 @@ const appRouter = createBrowserRouter([
         element: <ProductDetail />,
       },
       {
-        path: "login",
-        element: <Login />,
+        path: "auth",
+        element: <Auth />,
       },
     ],
   },

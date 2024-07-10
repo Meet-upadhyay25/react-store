@@ -1,13 +1,12 @@
 import { Form, ErrorMessage, Formik, Field } from "formik";
 import React, { useState } from "react";
-import useSignIn from "../../../hooks/useSignIn";
+import useSignIn from "../../../hooks/useSignIn"
+
 
 const validate = (values) => {
   const errors = {};
   if (!values.username) {
     errors.username = "Required";
-  } else if (values.username.length < 8) {
-    errors.username = "Less than 8 Character";
   }
 
   if (!values.password) {
@@ -17,7 +16,7 @@ const validate = (values) => {
   return errors;
 };
 
-const Login = () => {
+const Login = ({handleSignUp}) => {
   const [msg, setMsg] = useState(null);
   const { signIn } = useSignIn();
   return (
@@ -30,14 +29,14 @@ const Login = () => {
             password: "",
           }}
           validate={validate}
-          onSubmit={async (values, {resetForm}) => {
+          onSubmit={async (values, { resetForm }) => {
             const data = await signIn(values);
             if (!data) {
               setMsg("Invalid Credentials");
             } else {
               alert("Succesfully LoggedIn");
             }
-            resetForm({values:""})
+            resetForm({ values: "" });
           }}
         >
           <Form>
@@ -51,7 +50,10 @@ const Login = () => {
           </Form>
         </Formik>
       </div>
-      {msg ? msg : null}
+      <div>{msg ? msg : null}</div>
+      <div>
+        <button onClick={()=>handleSignUp()}>change</button>
+      </div>
     </div>
   );
 };

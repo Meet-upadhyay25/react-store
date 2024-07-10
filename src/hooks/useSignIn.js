@@ -15,11 +15,9 @@ const useSignIn = () => {
         }),
       });
       const data = await response.json();
-      // console.log(data);
       return data;
     } catch (error) {
       setError(error);
-      // console.log(error);
     }
   };
   return { signIn, error };
