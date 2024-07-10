@@ -1,5 +1,6 @@
 import { Form, ErrorMessage, Formik, Field } from "formik";
-import React from "react";
+import React, { useState } from "react";
+import useSignIn from "../../../hooks/useSignIn";
 
 const validate = (values) => {
   const errors = {};
@@ -17,6 +18,8 @@ const validate = (values) => {
 };
 
 const Login = () => {
+  const [msg, setMsg] = useState(null);
+  const { signIn } = useSignIn();
   return (
     <div>
       <div>
@@ -27,8 +30,14 @@ const Login = () => {
             password: "",
           }}
           validate={validate}
-          onSubmit={(values) => {
-            alert(JSON.stringify(values, null, 2));
+          onSubmit={async (values, {resetForm}) => {
+            const data = await signIn(values);
+            if (!data) {
+              setMsg("Invalid Credentials");
+            } else {
+              alert("Succesfully LoggedIn");
+            }
+            resetForm({values:""})
           }}
         >
           <Form>
@@ -42,6 +51,7 @@ const Login = () => {
           </Form>
         </Formik>
       </div>
+      {msg ? msg : null}
     </div>
   );
 };
