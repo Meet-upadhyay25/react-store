@@ -34,6 +34,7 @@ const Login = ({ handleSignUp }) => {
               setMsg("Invalid Credentials");
             } else {
               alert("Successfully Logged In");
+              setMsg(null)
             }
             resetForm({ values: "" });
           }}
