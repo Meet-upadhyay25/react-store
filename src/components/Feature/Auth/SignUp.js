@@ -48,74 +48,100 @@ const validate = (values) => {
 
 const SignUp = ({handleSignUp}) => {
   return (
-    <>
-      <div>SignUp</div>
-      <Formik
-        initialValues={{
-          email: "",
-          username: "",
-          password: "",
-          firstname: "",
-          lastname: "",
-          city: "",
-          street: "",
-          number: "",
-          zipcode: "",
-          phone: "",
-        }}
-        validate={validate}
-        onSubmit={(values, { resetForm }) => {
-          console.log(values);
+    <div className="min-h-screen flex items-center justify-center bg-gray-100 p-6">
+      <div className="w-full max-w-md bg-white rounded-lg shadow-md p-6">
+        <h2 className="text-2xl font-bold text-center mb-6">Sign Up</h2>
+        <Formik
+          initialValues={{
+            email: "",
+            username: "",
+            password: "",
+            firstname: "",
+            lastname: "",
+            city: "",
+            street: "",
+            number: "",
+            zipcode: "",
+            phone: "",
+          }}
+          validate={validate}
+          onSubmit={(values, { resetForm }) => {
+            console.log(values);
 
-          // resetForm({ values: "" });
-        }}
-      >
-        <Form>
-          <label htmlFor="email">Email</label>
-          <Field name="email" type="text" />
-          <ErrorMessage name="email" />
+            // resetForm({ values: "" });
+          }}
+        >
+          <Form className="space-y-4">
+            <div>
+              <label htmlFor="email" className="block text-sm font-medium text-gray-700">Email</label>
+              <Field name="email" type="text" className="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500" />
+              <ErrorMessage name="email" component="div" className="text-red-500 text-sm" />
+            </div>
 
-          <label htmlFor="username">Username</label>
-          <Field name="username" type="text" />
-          <ErrorMessage name="username" />
+            <div>
+              <label htmlFor="username" className="block text-sm font-medium text-gray-700">Username</label>
+              <Field name="username" type="text" className="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500" />
+              <ErrorMessage name="username" component="div" className="text-red-500 text-sm" />
+            </div>
 
-          <label htmlFor="password">Password</label>
-          <Field name="password" type="password" />
-          <ErrorMessage name="password" />
+            <div>
+              <label htmlFor="password" className="block text-sm font-medium text-gray-700">Password</label>
+              <Field name="password" type="password" className="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500" />
+              <ErrorMessage name="password" component="div" className="text-red-500 text-sm" />
+            </div>
 
-          <label htmlFor="firstname">FirstName</label>
-          <Field name="firstname" type="text" />
-          <ErrorMessage name="firstname" />
+            <div>
+              <label htmlFor="firstname" className="block text-sm font-medium text-gray-700">First Name</label>
+              <Field name="firstname" type="text" className="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500" />
+              <ErrorMessage name="firstname" component="div" className="text-red-500 text-sm" />
+            </div>
 
-          <label htmlFor="lastname">LastName</label>
-          <Field name="lastname" type="text" />
-          <ErrorMessage name="lastname" />
+            <div>
+              <label htmlFor="lastname" className="block text-sm font-medium text-gray-700">Last Name</label>
+              <Field name="lastname" type="text" className="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500" />
+              <ErrorMessage name="lastname" component="div" className="text-red-500 text-sm" />
+            </div>
 
-          <label htmlFor="city">City</label>
-          <Field name="city" type="text" />
-          <ErrorMessage name="city" />
+            <div>
+              <label htmlFor="city" className="block text-sm font-medium text-gray-700">City</label>
+              <Field name="city" type="text" className="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500" />
+              <ErrorMessage name="city" component="div" className="text-red-500 text-sm" />
+            </div>
 
-          <label htmlFor="street">Street</label>
-          <Field name="street" type="text" />
-          <ErrorMessage name="street" />
+            <div>
+              <label htmlFor="street" className="block text-sm font-medium text-gray-700">Street</label>
+              <Field name="street" type="text" className="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500" />
+              <ErrorMessage name="street" component="div" className="text-red-500 text-sm" />
+            </div>
 
-          <label htmlFor="number">Number</label>
-          <Field name="number" type="text" />
-          <ErrorMessage name="number" />
+            <div>
+              <label htmlFor="number" className="block text-sm font-medium text-gray-700">Number</label>
+              <Field name="number" type="text" className="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500" />
+              <ErrorMessage name="number" component="div" className="text-red-500 text-sm" />
+            </div>
 
-          <label htmlFor="zipcode">zipCOde</label>
-          <Field name="zipcode" type="text" />
-          <ErrorMessage name="zipcode" />
+            <div>
+              <label htmlFor="zipcode" className="block text-sm font-medium text-gray-700">Zip Code</label>
+              <Field name="zipcode" type="text" className="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500" />
+              <ErrorMessage name="zipcode" component="div" className="text-red-500 text-sm" />
+            </div>
 
-          <label htmlFor="phone">Phone</label>
-          <Field name="phone" type="text" />
-          <ErrorMessage name="phone" />
+            <div>
+              <label htmlFor="phone" className="block text-sm font-medium text-gray-700">Phone</label>
+              <Field name="phone" type="text" className="mt-1 p-2 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500" />
+              <ErrorMessage name="phone" component="div" className="text-red-500 text-sm" />
+            </div>
 
-          <button type="submit">SignUp</button>
-        </Form>
-      </Formik>
-      <div onClick={()=>handleSignUp()}>Do You already have an account ? LoginIn</div>
-    </>
+            <div>
+              <button type="submit" className="w-full bg-blue-500 text-white py-2 px-4 rounded-md shadow hover:bg-blue-600 transition duration-300">Sign Up</button>
+            </div>
+          </Form>
+        </Formik>
+        <div className="mt-4 text-center">
+          <p className="text-gray-700">Already have an account? <span onClick={handleSignUp} className="text-blue-500 cursor-pointer hover:underline">Login</span></p>
+        </div>
+      </div>
+    </div>
   );
 };
 
