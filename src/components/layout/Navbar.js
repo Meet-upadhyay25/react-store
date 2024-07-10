@@ -2,8 +2,12 @@ import React from "react";
 import { signIn } from "../../assets/index";
 import { navLink } from "../../utils/constant";
 import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { removeToken } from "../../reducer/authSlice";
 
 const Navbar = () => {
+  const isAuthenticated = useSelector((store) => store.auth.isAuthenticated);
+  const dispatch = useDispatch()
   return (
     <nav className="bg-gradient-to-r from-blue-500 to-indigo-600 shadow-lg p-5">
       <div className="max-w-6xl mx-auto flex justify-between items-center">
@@ -22,10 +26,18 @@ const Navbar = () => {
             ))}
             <li>
               <Link to={"/auth"}>
-                <img src={signIn} className="w-8 h-8 cursor-pointer" alt="login" />
-
+                <img
+                  src={signIn}
+                  className="w-8 h-8 cursor-pointer"
+                  alt="login"
+                />
               </Link>
             </li>
+            {isAuthenticated ? (
+              <li>
+                <button onClick={()=>dispatch(removeToken())}>Logout</button>
+              </li>
+            ) : null}
           </ul>
         </div>
       </div>

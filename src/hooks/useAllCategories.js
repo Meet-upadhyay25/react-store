@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
-import { addAllCategories } from "../reducer/productSlice";
+
 
 const useAllCategories = () => {
   const [error, setError] = useState(null);

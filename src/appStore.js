@@ -1,5 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
-import productSlice from "./reducer/productSlice";
+import authSlice from "./reducer/authSlice";
 
 const loadState = () => {
   try {
@@ -24,7 +24,7 @@ const persistedState = loadState();
 
 const appStore = configureStore({
   reducer: {
-    product:productSlice
+    auth: authSlice,
   },
   preloadedState: persistedState,
 });
